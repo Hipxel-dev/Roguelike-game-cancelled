@@ -1,0 +1,33 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://systems/reusable/hitbox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/enemies/forest_glades_enemy_art/hoppus.png" type="Texture" id=2]
+[ext_resource path="res://enemies/enemy_classes/enemy_class.gd" type="Script" id=3]
+[ext_resource path="res://systems/reusable/hurter.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 12.5, 12 )
+
+[node name="simple_enemy" type="KinematicBody2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="hitbox" parent="." groups=["enemy"] instance=ExtResource( 1 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="generic_hurter" parent="." instance=ExtResource( 4 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="generic_hurter"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 3 )

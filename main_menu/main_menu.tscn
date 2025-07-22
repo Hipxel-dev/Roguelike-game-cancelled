@@ -1,0 +1,1567 @@
+[gd_scene load_steps=47 format=2]
+
+[ext_resource path="res://art/fonts/picotron.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://art/effects/grid.png" type="Texture" id=2]
+[ext_resource path="res://main_menu/script/main_menu.gd" type="Script" id=3]
+[ext_resource path="res://main_menu/script/3d_model.gd" type="Script" id=4]
+[ext_resource path="res://main_menu/script/press_start.gd" type="Script" id=5]
+[ext_resource path="res://main_menu/script/main.gd" type="Script" id=6]
+[ext_resource path="res://art/effects/circ_big.png" type="Texture" id=7]
+[ext_resource path="res://art/Shaders/outline.tres" type="Shader" id=8]
+[ext_resource path="res://art/effects/rect.png" type="Texture" id=9]
+[ext_resource path="res://main_menu/script/logo.gd" type="Script" id=10]
+[ext_resource path="res://main_menu/script/menu_btn.gd" type="Script" id=11]
+[ext_resource path="res://main_menu/script/how_to_play.gd" type="Script" id=12]
+[ext_resource path="res://main_menu/script/area_select.gd" type="Script" id=13]
+[ext_resource path="res://art/ui_art/main_menu/forest_glades.png" type="Texture" id=14]
+[ext_resource path="res://main_menu/script/area_select_button.gd" type="Script" id=15]
+[ext_resource path="res://ui/component/button.tscn" type="PackedScene" id=16]
+[ext_resource path="res://art/ui_art/main_menu/caved_caverns.png" type="Texture" id=17]
+[ext_resource path="res://art/ui_art/main_menu/void.png" type="Texture" id=18]
+[ext_resource path="res://art/ui_art/main_menu/technic_facilities.png" type="Texture" id=19]
+[ext_resource path="res://ui/component/settings.tscn" type="PackedScene" id=20]
+[ext_resource path="res://art/ui_art/icons/class_icons.png" type="Texture" id=21]
+[ext_resource path="res://main_menu/script/class_select.gd" type="Script" id=22]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 8 )
+shader_param/color = Color( 1, 1, 1, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+shader_param/number_of_images = Vector2( 1, 1 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("bg/2d_particles")
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 8 )
+shader_param/color = Color( 0.101961, 0, 1, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+shader_param/number_of_images = Vector2( 1, 1 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("bg/3d_render")
+
+[sub_resource type="SpatialMaterial" id=4]
+emission_enabled = true
+emission = Color( 1, 0, 0.603922, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.49505, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.306931, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.811881, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Shader" id=9]
+code = "shader_type canvas_item;
+
+void vertex() {
+	VERTEX.x += (VERTEX.y);
+}"
+
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
+
+[sub_resource type="ShaderMaterial" id=12]
+shader = ExtResource( 8 )
+shader_param/color = Color( 1, 0, 0.701961, 1 )
+shader_param/width = 2.0
+shader_param/pattern = 0
+shader_param/inside = false
+shader_param/add_margins = true
+shader_param/number_of_images = Vector2( 1, 1 )
+
+[sub_resource type="ViewportTexture" id=13]
+viewport_path = NodePath("logo/render")
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+content_margin_left = 3.0
+content_margin_right = 3.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=25]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=26]
+content_margin_left = 3.0
+content_margin_right = 5.0
+content_margin_top = 3.0
+content_margin_bottom = 3.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=27]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="main_menu" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="fadeout" type="ColorRect" parent="."]
+visible = false
+margin_right = 508.0
+margin_bottom = 508.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="bg" type="Node2D" parent="."]
+
+[node name="bg" type="Sprite" parent="bg"]
+modulate = Color( 0.180392, 0.286275, 0.701961, 1 )
+position = Vector2( 286, 140 )
+scale = Vector2( 3.53629, 3.53629 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( -9.67944, -12.1363, 1114.38, 727.293 )
+
+[node name="bg2" type="Sprite" parent="bg"]
+material = SubResource( 6 )
+position = Vector2( 240, 135 )
+texture = SubResource( 5 )
+
+[node name="render" type="Sprite" parent="bg"]
+material = SubResource( 3 )
+position = Vector2( 240, 135 )
+texture = SubResource( 2 )
+
+[node name="3d_render" type="Viewport" parent="bg"]
+size = Vector2( 480, 270 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="3d_model" type="Spatial" parent="bg/3d_render"]
+script = ExtResource( 4 )
+
+[node name="CSGTorus" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( 0.198153, -0.980171, 0, 0.980171, 0.198153, 0, 0, 0, 1, 0, 0, 0 )
+inner_radius = 6.50136
+outer_radius = 7.39973
+sides = 12
+smooth_faces = false
+
+[node name="CSGTorus3" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( 0.849184, -0.528098, 0, 0.528098, 0.849184, 0, 0, 0, 1, 0, 0, 0 )
+inner_radius = 18.9327
+outer_radius = 19.4305
+sides = 32
+smooth_faces = false
+
+[node name="CSGTorus4" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.838646, -0.406261, 0.362801, 0.538416, -0.51763, 0.664957, -0.0823498, 0.753001, 0.652846, 0, 0, 0 )
+inner_radius = 18.9327
+outer_radius = 19.4305
+sides = 32
+smooth_faces = false
+
+[node name="CSGTorus5" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.866663, 0.493979, -0.0698581, -0.317774, -0.438641, 0.840603, 0.384598, 0.750718, 0.537128, 0, 0, 0 )
+inner_radius = 25.9781
+outer_radius = 26.2084
+sides = 32
+smooth_faces = false
+
+[node name="CSGTorus8" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.485754, -0.0951487, -0.868901, -0.804238, -0.340751, 0.486919, -0.342408, 0.935327, 0.0889989, 0, 0, 0 )
+inner_radius = 11.204
+outer_radius = 11.7026
+sides = 32
+smooth_faces = false
+
+[node name="CSGTorus9" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.485754, -0.0951487, -0.868901, -0.804238, -0.340751, 0.486919, -0.342408, 0.935327, 0.0889989, 0, 0, 0 )
+inner_radius = 13.7799
+outer_radius = 13.3454
+sides = 32
+smooth_faces = false
+
+[node name="CSGTorus10" type="CSGTorus" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( 0.946014, 0.217376, -0.240426, -0.257642, 0.95439, -0.150863, 0.196666, 0.204663, 0.958872, 0, 0, 0 )
+inner_radius = 6.04993
+outer_radius = 5.32417
+sides = 32
+smooth_faces = false
+
+[node name="CSGSphere" type="CSGSphere" parent="bg/3d_render/3d_model" groups=["rot"]]
+radius = 2.05654
+smooth_faces = false
+material = SubResource( 4 )
+
+[node name="spin" type="Spatial" parent="bg/3d_render/3d_model" groups=["rot"]]
+
+[node name="1" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="2" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+transform = Transform( 0.996195, -0.0871558, 0, 0.0871558, 0.996195, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="3" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+transform = Transform( 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="4" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+transform = Transform( 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="5" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+transform = Transform( 0.941902, -0.333871, 0.0367612, 0.333791, 0.942609, 0.008474, -0.0374807, 0.00428886, 0.999288, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="6" type="Spatial" parent="bg/3d_render/3d_model/spin"]
+transform = Transform( 0.91069, -0.406646, 0.0726903, 0.406326, 0.913514, 0.0197995, -0.074455, 0.0115047, 0.997158, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin/6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 12.5293
+height = 0.2
+depth = 0.2
+
+[node name="spin2" type="Spatial" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.098526, -0.293433, 0.950889, 0.763728, 0.590294, 0.261291, -0.637976, 0.751964, 0.165944, 0, 0, 0 )
+
+[node name="1" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="2" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.997743, -0.0162887, 0.0651351, 0.0126374, 0.998346, 0.0560781, -0.0659409, -0.0551284, 0.996299, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="3" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.990991, -0.0361044, 0.128969, 0.0215277, 0.993398, 0.112679, -0.132186, -0.108887, 0.985226, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="4" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.979794, -0.0592963, 0.191015, 0.0266029, 0.985193, 0.169372, -0.19823, -0.160868, 0.966864, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="5" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.964238, -0.0856881, 0.250802, 0.0278247, 0.973793, 0.225726, -0.263572, -0.210675, 0.941353, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="6" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.944441, -0.115078, 0.307875, 0.0251833, 0.959286, 0.281311, -0.327713, -0.257929, 0.908888, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="7" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.920554, -0.147244, 0.361798, 0.0186996, 0.941781, 0.335706, -0.390166, -0.30227, 0.869714, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="8" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.892759, -0.181941, 0.412162, 0.00842237, 0.921412, 0.388495, -0.450455, -0.343361, 0.824132, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="9" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.861267, -0.218903, 0.458584, -0.00556993, 0.898334, 0.439277, -0.508121, -0.380889, 0.772487, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="10" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.826317, -0.257851, 0.50071, -0.0231712, 0.872723, 0.487665, -0.562727, -0.414568, 0.715172, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="11" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.788177, -0.298488, 0.53822, -0.0442472, 0.844773, 0.533292, -0.613855, -0.444143, 0.652624, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="12" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.747136, -0.340503, 0.570828, -0.0686371, 0.814697, 0.57581, -0.661117, -0.469388, 0.585319, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/12"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="13" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.703506, -0.383579, 0.598285, -0.0961559, 0.782725, 0.614895, -0.704154, -0.490111, 0.513768, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="14" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.65762, -0.427386, 0.620384, -0.126594, 0.749098, 0.65025, -0.742637, -0.506154, 0.438518, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="15" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.609826, -0.471592, 0.636955, -0.15972, 0.714074, 0.681606, -0.776274, -0.517395, 0.360139, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="16" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.560489, -0.51586, 0.647874, -0.195281, 0.677919, 0.708724, -0.804809, -0.523749, 0.279229, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/16"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="17" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.509984, -0.559852, 0.653055, -0.233007, 0.640908, 0.731398, -0.828024, -0.525168, 0.196403, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="18" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.458695, -0.603235, 0.652461, -0.272611, 0.603323, 0.749456, -0.845743, -0.521639, 0.112293, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="19" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.407012, -0.645678, 0.646095, -0.313791, 0.56545, 0.762759, -0.857832, -0.513191, 0.0275374, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/19"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="20" type="Spatial" parent="bg/3d_render/3d_model/spin2"]
+transform = Transform( 0.35533, -0.686858, 0.634006, -0.356234, 0.527576, 0.771207, -0.864197, -0.499888, -0.0572183, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin2/20"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.2
+depth = 0.2
+
+[node name="spin3" type="Spatial" parent="bg/3d_render/3d_model" groups=["rot"]]
+transform = Transform( -0.937156, -0.332247, -0.106537, -0.341826, 0.813064, 0.471255, -0.0699514, 0.478057, -0.875539, 0, 0, 0 )
+
+[node name="1" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="2" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.969907, -0.13144, 0.204948, 0.1125, 0.988451, 0.101527, -0.215925, -0.075415, 0.973493, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="3" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.881679, -0.272863, 0.38495, 0.198393, 0.954592, 0.222247, -0.428114, -0.119579, 0.895778, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="4" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.741329, -0.414631, 0.527742, 0.251825, 0.90073, 0.353932, -0.622104, -0.129482, 0.772153, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="5" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.558422, -0.547082, 0.62359, 0.269156, 0.830536, 0.48761, -0.784677, -0.104449, 0.61104, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="6" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.345422, -0.661191, 0.665965, 0.249204, 0.748793, 0.61417, -0.904754, -0.0461862, 0.423421, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/6"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="7" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( 0.116845, -0.749181, 0.651977, 0.193329, 0.661073, 0.724986, -0.97415, 0.0413357, 0.222081, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/7"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="8" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.111732, -0.805056, 0.582579, 0.105339, 0.573352, 0.812508, -0.988138, 0.152152, 0.0207415, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="9" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.324732, -0.825007, 0.462503, -0.00877017, 0.49161, 0.87077, -0.945764, 0.278712, -0.166877, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/9"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="10" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.507639, -0.807676, 0.29993, -0.141222, 0.421416, 0.895803, -0.849915, 0.412389, -0.327989, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="11" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.637985, -0.711838, 0.293698, -0.263948, 0.560448, 0.785001, -0.723397, 0.423298, -0.545447, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/11"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="12" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.732351, -0.677328, 0.0698916, -0.406117, 0.516871, 0.753599, -0.546559, 0.523516, -0.653606, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/12"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="13" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.768948, -0.617589, -0.16522, -0.539307, 0.487853, 0.6864, -0.343311, 0.616911, -0.708205, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/13"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="14" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.745283, -0.536693, -0.395613, -0.65444, 0.475373, 0.587983, -0.127503, 0.697121, -0.705522, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/14"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="15" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.662967, -0.440152, -0.605588, -0.743672, 0.480282, 0.465057, 0.0861564, 0.758677, -0.645741, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/15"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="16" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.52761, -0.334546, -0.780834, -0.80092, 0.502244, 0.325998, 0.283108, 0.797386, -0.532935, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/16"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="17" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.348438, -0.227071, -0.909409, -0.822283, 0.539764, 0.180282, 0.449929, 0.81061, -0.374791, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/17"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="18" type="Spatial" parent="bg/3d_render/3d_model/spin3"]
+transform = Transform( -0.137659, -0.125052, -0.982551, -0.806306, 0.590284, 0.0378402, 0.575252, 0.797447, -0.182088, 0, 0, 0 )
+
+[node name="CSGBox" type="CSGBox" parent="bg/3d_render/3d_model/spin3/18"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4236, 0, 0 )
+width = 4.0
+height = 0.4
+depth = 0.4
+
+[node name="Camera" type="Camera" parent="bg/3d_render"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.6888 )
+
+[node name="2d_particles" type="Viewport" parent="bg"]
+size = Vector2( 480, 270 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="particles" type="CPUParticles2D" parent="bg/2d_particles"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 480, 270 )
+amount = 15
+lifetime = 7.0
+speed_scale = 0.4
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 122, 233 )
+direction = Vector2( -1, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 155.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+scale_amount_curve = SubResource( 7 )
+
+[node name="particles3" type="CPUParticles2D" parent="bg/2d_particles"]
+modulate = Color( 1, 0, 0.654902, 1 )
+position = Vector2( 480, 270 )
+amount = 122
+lifetime = 7.0
+speed_scale = 0.4
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 122, 233 )
+direction = Vector2( -1, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 155.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+scale_amount = 0.0
+scale_amount_random = 0.3
+scale_amount_curve = SubResource( 7 )
+
+[node name="particles2" type="CPUParticles2D" parent="bg/2d_particles"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 240, 135 )
+amount = 122
+lifetime = 7.0
+speed_scale = 0.4
+texture = ExtResource( 7 )
+emission_shape = 2
+emission_rect_extents = Vector2( 122, 233 )
+direction = Vector2( -1, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 155.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+tangential_accel = 100.0
+tangential_accel_random = 1.0
+scale_amount = 0.0
+scale_amount_random = 0.1
+scale_amount_curve = SubResource( 8 )
+
+[node name="rays" type="Node2D" parent="bg"]
+
+[node name="logo" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="render" type="Viewport" parent="logo"]
+size = Vector2( 480, 270 )
+transparent_bg = true
+render_target_v_flip = true
+
+[node name="shapes" type="Node2D" parent="logo/render"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 65.265, 91.731 )
+scale = Vector2( 0.7, 0.7 )
+
+[node name="1" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 56.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 32.0
+
+[node name="2" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 24.0
+margin_top = 8.0
+margin_right = 51.0
+margin_bottom = 24.0
+
+[node name="3" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_top = 8.0
+margin_right = 19.0
+margin_bottom = 88.0
+
+[node name="4" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 56.0
+margin_bottom = 88.0
+
+[node name="5" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 72.0
+margin_top = -8.0
+margin_right = 88.0
+margin_bottom = 88.0
+
+[node name="6" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 144.0
+margin_top = 40.0
+margin_right = 184.0
+margin_bottom = 48.0
+
+[node name="7" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 176.0
+margin_top = 40.0
+margin_right = 192.0
+margin_bottom = 112.0
+
+[node name="8" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 176.0
+margin_top = 7.0
+margin_right = 192.0
+margin_bottom = 79.0
+
+[node name="9" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 176.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 16.0
+
+[node name="10" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 216.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 96.0
+
+[node name="11" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 224.0
+margin_top = 32.0
+margin_right = 232.0
+margin_bottom = 48.0
+
+[node name="12" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 256.0
+margin_top = 16.0
+margin_right = 272.0
+margin_bottom = 72.0
+
+[node name="13" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 256.0
+margin_top = 16.0
+margin_right = 296.0
+margin_bottom = 32.0
+
+[node name="14" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 256.0
+margin_top = -32.0
+margin_right = 264.0
+margin_bottom = 48.0
+
+[node name="15" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 312.0
+margin_top = 8.0
+margin_right = 320.0
+margin_bottom = 64.0
+
+[node name="16" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 360.0
+margin_top = 56.0
+margin_right = 400.0
+margin_bottom = 64.0
+
+[node name="17" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 336.0
+margin_right = 344.0
+margin_bottom = 56.0
+
+[node name="18" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 360.0
+margin_right = 368.0
+margin_bottom = 56.0
+
+[node name="19" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 376.0
+margin_right = 408.0
+margin_bottom = 16.0
+
+[node name="20" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 416.0
+margin_right = 448.0
+margin_bottom = 16.0
+
+[node name="21" type="ColorRect" parent="logo/render/shapes"]
+material = SubResource( 10 )
+margin_left = 456.0
+margin_right = 464.0
+margin_bottom = 80.0
+
+[node name="Sprite" type="Sprite" parent="logo"]
+material = SubResource( 12 )
+position = Vector2( 240, 133 )
+texture = SubResource( 13 )
+
+[node name="press_start" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="text" type="Label" parent="press_start"]
+margin_left = 2.0
+margin_top = 207.0
+margin_right = 478.0
+margin_bottom = 216.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Press anything to continue"
+align = 1
+
+[node name="main" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="bg" type="Node2D" parent="main"]
+
+[node name="play" type="NinePatchRect" parent="main"]
+margin_left = 74.0
+margin_top = 76.0
+margin_right = 176.0
+margin_bottom = 92.0
+rect_clip_content = true
+texture = ExtResource( 9 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource( 11 )
+
+[node name="rect" type="ColorRect" parent="main/play"]
+show_behind_parent = true
+margin_right = 294.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="text" type="Label" parent="main/play"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 14 )
+text = "Play"
+
+[node name="settings" type="NinePatchRect" parent="main"]
+margin_left = 74.0
+margin_top = 76.0
+margin_right = 176.0
+margin_bottom = 92.0
+rect_clip_content = true
+texture = ExtResource( 9 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource( 11 )
+
+[node name="rect" type="ColorRect" parent="main/settings"]
+show_behind_parent = true
+margin_right = 294.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="text" type="Label" parent="main/settings"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 14 )
+text = "Settings"
+
+[node name="how_to_play" type="NinePatchRect" parent="main"]
+margin_left = 74.0
+margin_top = 76.0
+margin_right = 176.0
+margin_bottom = 92.0
+rect_clip_content = true
+texture = ExtResource( 9 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource( 11 )
+
+[node name="rect" type="ColorRect" parent="main/how_to_play"]
+show_behind_parent = true
+margin_right = 294.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="text" type="Label" parent="main/how_to_play"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 14 )
+text = "How To Play"
+
+[node name="quit" type="NinePatchRect" parent="main"]
+margin_left = 74.0
+margin_top = 76.0
+margin_right = 176.0
+margin_bottom = 92.0
+rect_clip_content = true
+texture = ExtResource( 9 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource( 11 )
+
+[node name="rect" type="ColorRect" parent="main/quit"]
+show_behind_parent = true
+margin_right = 294.0
+margin_bottom = 20.0
+mouse_filter = 2
+
+[node name="text" type="Label" parent="main/quit"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 46.0
+margin_bottom = 18.0
+custom_fonts/font = SubResource( 14 )
+text = "Quit"
+
+[node name="anchor" type="Position2D" parent="main"]
+position = Vector2( 40, 152 )
+
+[node name="how_to_play" type="Node2D" parent="."]
+position = Vector2( 0, 321 )
+script = ExtResource( 12 )
+
+[node name="ColorRect" type="ColorRect" parent="how_to_play"]
+margin_left = 24.0
+margin_right = 216.0
+margin_bottom = 296.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="back" parent="how_to_play" instance=ExtResource( 16 )]
+margin_left = 36.0
+margin_top = 224.0
+margin_right = 68.0
+margin_bottom = 243.0
+
+[node name="text" type="Label" parent="how_to_play/back"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 20 )
+text = "back"
+
+[node name="texts_container" type="Control" parent="how_to_play"]
+margin_left = 39.0
+margin_top = 16.0
+margin_right = 452.0
+margin_bottom = 218.0
+rect_clip_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_right = 217.0
+margin_bottom = 25.0
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]How to play Shapium"
+text = "How to play Shapium"
+
+[node name="RichTextLabel16" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_right = 217.0
+margin_bottom = 25.0
+custom_fonts/normal_font = SubResource( 22 )
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 13.0
+margin_right = 217.0
+margin_bottom = 38.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]W,A,S,D[/color] to Move."
+text = "W,A,S,D to Move."
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 30.0
+margin_right = 217.0
+margin_bottom = 55.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Click[/color] to Attack."
+text = "Click to Attack."
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 45.0
+margin_right = 217.0
+margin_bottom = 70.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Alt Click[/color] to Special Attack."
+text = "Alt Click to Special Attack."
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 61.0
+margin_right = 217.0
+margin_bottom = 86.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Tab[/color] or [color=yellow]Esc[/color] to Pause"
+text = "Tab or Esc to Pause"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 78.0
+margin_right = 217.0
+margin_bottom = 103.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]F4[/color] or [color=yellow]F11[/color] to Fullscreen Toggle"
+text = "F4 or F11 to Fullscreen Toggle"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 95.0
+margin_right = 217.0
+margin_bottom = 120.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]F4[/color] or [color=yellow]F11[/color] to Fullscreen Toggle"
+text = "F4 or F11 to Fullscreen Toggle"
+
+[node name="RichTextLabel14" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 95.0
+margin_right = 217.0
+margin_bottom = 120.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 127.0
+margin_right = 217.0
+margin_bottom = 152.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "Shapium is a Roguelike Game
+"
+text = "Shapium is a Roguelike Game
+"
+
+[node name="RichTextLabel15" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 127.0
+margin_right = 217.0
+margin_bottom = 152.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 139.0
+margin_right = 217.0
+margin_bottom = 164.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Fight[/color] your way through the areas"
+text = "Fight your way through the areas"
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 152.0
+margin_right = 217.0
+margin_bottom = 177.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "Filled with [color=yellow]Enemies[/color] who might kill"
+text = "Filled with Enemies who might kill"
+
+[node name="RichTextLabel11" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 165.0
+margin_right = 217.0
+margin_bottom = 190.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "If your [color=yellow]HP Reaches 0[/color] its [color=yellow]Game over[/color]"
+text = "If your HP Reaches 0 its Game over"
+
+[node name="RichTextLabel12" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 177.0
+margin_right = 217.0
+margin_bottom = 202.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "There are couple of [color=yellow]Weapons[/color] and "
+text = "There are couple of Weapons and "
+
+[node name="RichTextLabel13" type="RichTextLabel" parent="how_to_play/texts_container"]
+margin_top = 190.0
+margin_right = 217.0
+margin_bottom = 215.0
+custom_fonts/normal_font = SubResource( 22 )
+bbcode_enabled = true
+bbcode_text = "[color=yellow]Abilities[/color] you will find. Good luck"
+text = "Abilities you will find. Good luck"
+
+[node name="area_select" type="Node2D" parent="."]
+script = ExtResource( 13 )
+
+[node name="bg" type="Node2D" parent="area_select"]
+
+[node name="ColorRect" type="ColorRect" parent="area_select/bg"]
+margin_right = 480.0
+margin_bottom = 270.0
+color = Color( 0, 0, 0, 0.780392 )
+
+[node name="area_button" type="Node2D" parent="area_select"]
+position = Vector2( 34, 27 )
+script = ExtResource( 15 )
+
+[node name="rect" parent="area_select/area_button" instance=ExtResource( 16 )]
+margin_right = 76.0
+margin_bottom = 216.0
+unhover_color = Color( 1, 1, 1, 1 )
+child_hover_color = Color( 2, 2, 2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="area_select/area_button/rect"]
+show_behind_parent = true
+margin_left = -200.0
+margin_right = 300.0
+margin_bottom = 216.0
+mouse_filter = 2
+texture = ExtResource( 14 )
+
+[node name="title" type="Node2D" parent="area_select/area_button/rect"]
+
+[node name="text" type="Label" parent="area_select/area_button/rect/title"]
+margin_left = 6.0
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 18 )
+text = "World 1"
+
+[node name="text2" type="Label" parent="area_select/area_button/rect/title"]
+margin_left = 6.0
+margin_top = 28.0
+margin_right = 71.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 17 )
+text = "Forest Glades"
+
+[node name="select_ui" type="Control" parent="area_select/area_button/rect"]
+show_behind_parent = true
+margin_right = 76.0
+margin_bottom = 213.0
+mouse_filter = 2
+
+[node name="enter" parent="area_select/area_button/rect/select_ui" instance=ExtResource( 16 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -483.0
+margin_top = 192.0
+margin_right = 59.0
+margin_bottom = 205.0
+texture = null
+hover_color = Color( 0, 0, 0, 1 )
+unhover_color = Color( 0, 0, 0, 0 )
+child_hover_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="area_select/area_button/rect/select_ui/enter"]
+margin_left = 441.0
+margin_top = 2.0
+margin_right = 481.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 19 )
+text = "Enter"
+
+[node name="area_button2" type="Node2D" parent="area_select"]
+position = Vector2( 154, 27 )
+script = ExtResource( 15 )
+
+[node name="rect" parent="area_select/area_button2" instance=ExtResource( 16 )]
+margin_right = 76.0
+margin_bottom = 216.0
+unhover_color = Color( 1, 1, 1, 1 )
+child_hover_color = Color( 2, 2, 2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="area_select/area_button2/rect"]
+show_behind_parent = true
+margin_left = -200.0
+margin_right = 300.0
+margin_bottom = 216.0
+mouse_filter = 2
+texture = ExtResource( 17 )
+
+[node name="title" type="Node2D" parent="area_select/area_button2/rect"]
+
+[node name="text" type="Label" parent="area_select/area_button2/rect/title"]
+margin_left = 6.0
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 18 )
+text = "World 2"
+
+[node name="text2" type="Label" parent="area_select/area_button2/rect/title"]
+modulate = Color( 0.533333, 0.729412, 1, 1 )
+margin_left = 6.0
+margin_top = 28.0
+margin_right = 71.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 17 )
+text = "Rocky Caverns"
+
+[node name="select_ui" type="Control" parent="area_select/area_button2/rect"]
+show_behind_parent = true
+margin_right = 76.0
+margin_bottom = 213.0
+mouse_filter = 2
+
+[node name="enter" parent="area_select/area_button2/rect/select_ui" instance=ExtResource( 16 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -483.0
+margin_top = 192.0
+margin_right = 59.0
+margin_bottom = 205.0
+texture = null
+hover_color = Color( 0, 0, 0, 1 )
+unhover_color = Color( 0, 0, 0, 0 )
+child_hover_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="area_select/area_button2/rect/select_ui/enter"]
+margin_left = 441.0
+margin_top = 2.0
+margin_right = 481.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 19 )
+text = "Enter"
+
+[node name="area_button3" type="Node2D" parent="area_select"]
+position = Vector2( 262, 27 )
+script = ExtResource( 15 )
+
+[node name="rect" parent="area_select/area_button3" instance=ExtResource( 16 )]
+margin_right = 76.0
+margin_bottom = 216.0
+unhover_color = Color( 1, 1, 1, 1 )
+child_hover_color = Color( 2, 2, 2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="area_select/area_button3/rect"]
+show_behind_parent = true
+margin_left = -200.0
+margin_right = 300.0
+margin_bottom = 216.0
+mouse_filter = 2
+texture = ExtResource( 19 )
+
+[node name="title" type="Node2D" parent="area_select/area_button3/rect"]
+
+[node name="text" type="Label" parent="area_select/area_button3/rect/title"]
+margin_left = 6.0
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 18 )
+text = "World 3"
+
+[node name="text2" type="Label" parent="area_select/area_button3/rect/title"]
+modulate = Color( 1, 0.811765, 0.513726, 1 )
+margin_left = 6.0
+margin_top = 28.0
+margin_right = 71.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 17 )
+text = "Tech Facility"
+
+[node name="select_ui" type="Control" parent="area_select/area_button3/rect"]
+show_behind_parent = true
+margin_right = 76.0
+margin_bottom = 213.0
+mouse_filter = 2
+
+[node name="enter" parent="area_select/area_button3/rect/select_ui" instance=ExtResource( 16 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -483.0
+margin_top = 192.0
+margin_right = 59.0
+margin_bottom = 205.0
+texture = null
+hover_color = Color( 0, 0, 0, 1 )
+unhover_color = Color( 0, 0, 0, 0 )
+child_hover_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="area_select/area_button3/rect/select_ui/enter"]
+margin_left = 441.0
+margin_top = 2.0
+margin_right = 481.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 19 )
+text = "Enter"
+
+[node name="area_button4" type="Node2D" parent="area_select"]
+position = Vector2( 376, 27 )
+script = ExtResource( 15 )
+
+[node name="rect" parent="area_select/area_button4" instance=ExtResource( 16 )]
+margin_right = 76.0
+margin_bottom = 216.0
+unhover_color = Color( 1, 1, 1, 1 )
+child_hover_color = Color( 2, 2, 2, 1 )
+
+[node name="TextureRect" type="TextureRect" parent="area_select/area_button4/rect"]
+show_behind_parent = true
+margin_left = -200.0
+margin_right = 300.0
+margin_bottom = 216.0
+mouse_filter = 2
+texture = ExtResource( 18 )
+
+[node name="title" type="Node2D" parent="area_select/area_button4/rect"]
+
+[node name="text" type="Label" parent="area_select/area_button4/rect/title"]
+margin_left = 6.0
+margin_top = 18.0
+margin_right = 76.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 18 )
+text = "World 4"
+
+[node name="text2" type="Label" parent="area_select/area_button4/rect/title"]
+modulate = Color( 1, 0.513726, 0.788235, 1 )
+margin_left = 6.0
+margin_top = 28.0
+margin_right = 71.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 17 )
+text = "The Void"
+
+[node name="select_ui" type="Control" parent="area_select/area_button4/rect"]
+show_behind_parent = true
+margin_right = 76.0
+margin_bottom = 213.0
+mouse_filter = 2
+
+[node name="enter" parent="area_select/area_button4/rect/select_ui" instance=ExtResource( 16 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -483.0
+margin_top = 192.0
+margin_right = 59.0
+margin_bottom = 205.0
+texture = null
+hover_color = Color( 0, 0, 0, 1 )
+unhover_color = Color( 0, 0, 0, 0 )
+child_hover_color = Color( 1, 1, 1, 1 )
+
+[node name="Label" type="Label" parent="area_select/area_button4/rect/select_ui/enter"]
+margin_left = 441.0
+margin_top = 2.0
+margin_right = 481.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 19 )
+text = "Enter"
+
+[node name="anchor" type="Position2D" parent="area_select"]
+position = Vector2( 56, 27 )
+
+[node name="back" parent="area_select" instance=ExtResource( 16 )]
+margin_left = 7.0
+margin_top = 249.0
+margin_right = 39.0
+margin_bottom = 268.0
+
+[node name="text" type="Label" parent="area_select/back"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 46.0
+margin_bottom = 19.0
+custom_fonts/font = SubResource( 16 )
+text = "Back"
+
+[node name="class_select" type="Control" parent="area_select"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = 7.0
+margin_right = 238.0
+margin_bottom = 270.0
+script = ExtResource( 22 )
+
+[node name="bg" type="Node2D" parent="area_select/class_select"]
+
+[node name="ColorRect" type="ColorRect" parent="area_select/class_select/bg"]
+margin_left = -5.0
+margin_top = 67.0
+margin_right = 471.0
+margin_bottom = 99.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="text" type="Label" parent="area_select/class_select/bg"]
+margin_left = 6.0
+margin_top = 50.0
+margin_right = 97.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 23 )
+custom_styles/normal = SubResource( 24 )
+text = "Choose your Class"
+
+[node name="selected_class_effect" type="Control" parent="area_select/class_select"]
+margin_left = 42.0
+margin_top = -66.0
+margin_right = 82.0
+margin_bottom = -26.0
+
+[node name="ColorRect" type="ColorRect" parent="area_select/class_select/selected_class_effect"]
+modulate = Color( 1, 1, 1, 0.435294 )
+margin_left = -5.0
+margin_top = -5.0
+margin_right = 29.0
+margin_bottom = 28.0
+
+[node name="class_sword" parent="area_select/class_select" instance=ExtResource( 16 )]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="icon" type="Sprite" parent="area_select/class_select/class_sword"]
+position = Vector2( 12, 12 )
+texture = ExtResource( 21 )
+hframes = 5
+
+[node name="class_gun" parent="area_select/class_select" instance=ExtResource( 16 )]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="icon" type="Sprite" parent="area_select/class_select/class_gun"]
+position = Vector2( 12, 12 )
+texture = ExtResource( 21 )
+hframes = 5
+frame = 1
+
+[node name="class_magic" parent="area_select/class_select" instance=ExtResource( 16 )]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="icon" type="Sprite" parent="area_select/class_select/class_magic"]
+position = Vector2( 12, 12 )
+texture = ExtResource( 21 )
+hframes = 5
+frame = 2
+
+[node name="class_angel" parent="area_select/class_select" instance=ExtResource( 16 )]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="icon" type="Sprite" parent="area_select/class_select/class_angel"]
+position = Vector2( 12, 12 )
+texture = ExtResource( 21 )
+hframes = 5
+frame = 3
+
+[node name="class_smartphone" parent="area_select/class_select" instance=ExtResource( 16 )]
+margin_right = 24.0
+margin_bottom = 24.0
+
+[node name="icon" type="Sprite" parent="area_select/class_select/class_smartphone"]
+position = Vector2( 12, 12 )
+texture = ExtResource( 21 )
+hframes = 5
+frame = 4
+
+[node name="Position2D" type="Position2D" parent="area_select/class_select"]
+position = Vector2( 22, 70 )
+
+[node name="description" type="Node2D" parent="area_select/class_select"]
+
+[node name="title" type="RichTextLabel" parent="area_select/class_select/description"]
+margin_left = 17.0
+margin_top = 103.0
+margin_right = 132.0
+margin_bottom = 123.0
+custom_fonts/normal_font = SubResource( 25 )
+custom_styles/normal = SubResource( 26 )
+bbcode_text = "Title"
+text = "Title"
+scroll_active = false
+
+[node name="desc" type="RichTextLabel" parent="area_select/class_select/description"]
+margin_left = 17.0
+margin_top = 125.0
+margin_right = 223.0
+margin_bottom = 209.0
+custom_fonts/normal_font = SubResource( 27 )
+custom_styles/normal = SubResource( 26 )
+bbcode_text = "Title"
+text = "Title"
+scroll_active = false
+
+[node name="settings" parent="." instance=ExtResource( 20 )]

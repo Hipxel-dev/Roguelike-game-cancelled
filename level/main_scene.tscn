@@ -1,0 +1,563 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://art/fonts/picotron.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/hud/scripts/health_hud.gd" type="Script" id=3]
+[ext_resource path="res://ui/hud/scripts/shield_hud.gd" type="Script" id=4]
+[ext_resource path="res://level/room_container.gd" type="Script" id=5]
+[ext_resource path="res://player/scripts/camera.gd" type="Script" id=6]
+[ext_resource path="res://ui/hud/scripts/weapon_hud_manager.gd" type="Script" id=7]
+[ext_resource path="res://ui/hud/scripts/weapon_gun_hud.gd" type="Script" id=8]
+[ext_resource path="res://art/ui_art/icons/bullet_type_icons.png" type="Texture" id=9]
+[ext_resource path="res://art/fonts/pico-8-font.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://art/player/weapons/guns/smg.png" type="Texture" id=11]
+[ext_resource path="res://level/main_scene.gd" type="Script" id=12]
+[ext_resource path="res://player/weapons/guns/weapon_smg.tscn" type="PackedScene" id=13]
+[ext_resource path="res://ui/hud/scripts/trinket_hud.gd" type="Script" id=14]
+[ext_resource path="res://ui/hud/scripts/run_timer_hud.gd" type="Script" id=15]
+[ext_resource path="res://art/fonts/AsepriteFont.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://ui/hud/scripts/hud.gd" type="Script" id=17]
+[ext_resource path="res://ui/hud/scripts/gold.gd" type="Script" id=18]
+[ext_resource path="res://art/fonts/8bitoperator-tfx.ttf" type="DynamicFontData" id=19]
+[ext_resource path="res://art/player/objects/gold.png" type="Texture" id=20]
+[ext_resource path="res://art/effects/rect.png" type="Texture" id=21]
+[ext_resource path="res://art/player/trinket/trinket_art_placeholder.png" type="Texture" id=22]
+[ext_resource path="res://ui/component/mouse_bounder.tscn" type="PackedScene" id=23]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 1 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.85098, 1, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0, 0, 0, 0 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 1, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0 )
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_top = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.215686, 0.215686, 0.215686, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0, 0.733333, 1, 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+expand_margin_top = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="DynamicFont" id=13]
+size = 5
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 5
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=17]
+font_data = ExtResource( 16 )
+
+[sub_resource type="StyleBoxFlat" id=18]
+content_margin_left = 4.0
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 5
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 12
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 12
+font_data = ExtResource( 19 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 8, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 16, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 24, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 32, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 40, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 48, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 56, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 64, 0, 8, 8 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 2
+atlas = ExtResource( 20 )
+region = Rect2( 72, 0, 8, 8 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=33]
+size = 8
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+content_margin_left = 3.0
+bg_color = Color( 1, 1, 1, 1 )
+
+[node name="main_scene" type="Node2D"]
+script = ExtResource( 12 )
+
+[node name="room_container" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="weapon_smg" parent="room_container" instance=ExtResource( 13 )]
+position = Vector2( 221, 136 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+
+[node name="cam" type="Camera2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="view" type="Camera2D" parent="cam"]
+current = true
+
+[node name="ui" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 17 )
+
+[node name="health" type="Control" parent="ui"]
+script = ExtResource( 3 )
+
+[node name="health_outline" type="ColorRect" parent="ui/health"]
+margin_left = 172.0
+margin_top = 224.0
+margin_right = 299.0
+margin_bottom = 232.0
+
+[node name="hp_bar_delay" type="ProgressBar" parent="ui/health"]
+margin_left = 175.0
+margin_top = 227.0
+margin_right = 296.0
+margin_bottom = 229.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 2 )
+value = 50.0
+percent_visible = false
+
+[node name="hp_bar_lerp" type="ProgressBar" parent="ui/health"]
+margin_left = 175.0
+margin_top = 227.0
+margin_right = 296.0
+margin_bottom = 229.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+value = 50.0
+percent_visible = false
+
+[node name="hp_bar" type="ProgressBar" parent="ui/health"]
+margin_left = 175.0
+margin_top = 227.0
+margin_right = 296.0
+margin_bottom = 229.0
+custom_styles/fg = SubResource( 1 )
+custom_styles/bg = SubResource( 5 )
+value = 50.0
+percent_visible = false
+
+[node name="text" type="Label" parent="ui/health"]
+margin_left = 284.0
+margin_top = 216.0
+margin_right = 299.0
+margin_bottom = 224.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 8 )
+text = "100"
+
+[node name="shield" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 4 )
+
+[node name="shield_outline" type="ColorRect" parent="ui/shield"]
+margin_left = 172.0
+margin_top = 229.0
+margin_right = 299.0
+margin_bottom = 237.0
+
+[node name="sh_bar_delay" type="ProgressBar" parent="ui/shield"]
+margin_left = 175.0
+margin_top = 232.0
+margin_right = 296.0
+margin_bottom = 234.0
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 2 )
+value = 50.0
+percent_visible = false
+
+[node name="sh_bar_lerp" type="ProgressBar" parent="ui/shield"]
+margin_left = 175.0
+margin_top = 232.0
+margin_right = 296.0
+margin_bottom = 234.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+value = 50.0
+percent_visible = false
+
+[node name="sh_bar" type="ProgressBar" parent="ui/shield"]
+margin_left = 175.0
+margin_top = 232.0
+margin_right = 296.0
+margin_bottom = 234.0
+custom_styles/fg = SubResource( 9 )
+custom_styles/bg = SubResource( 5 )
+value = 50.0
+percent_visible = false
+
+[node name="text" type="Label" parent="ui/shield"]
+margin_left = 284.0
+margin_top = 238.0
+margin_right = 299.0
+margin_bottom = 246.0
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 8 )
+text = "100"
+
+[node name="weapon_hud" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 7 )
+
+[node name="wpn_gun_hud" type="Control" parent="ui/weapon_hud"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 8 )
+
+[node name="ammo_dongle" type="Control" parent="ui/weapon_hud/wpn_gun_hud"]
+margin_left = 25.0
+margin_top = 206.0
+margin_right = 25.0
+margin_bottom = 206.0
+
+[node name="bg" type="ColorRect" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 5.0
+margin_top = -11.0
+margin_right = 31.0
+margin_bottom = -1.0
+
+[node name="magazine_ammo" type="Label" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+margin_left = 16.0
+margin_top = -10.0
+margin_right = 31.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+text = "120"
+
+[node name="ColorRect2" type="ColorRect" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+margin_top = -1.0
+margin_right = 31.0
+
+[node name="ammo" type="Label" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+margin_left = 13.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 10.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/normal = SubResource( 12 )
+text = "120"
+align = 2
+
+[node name="bullet_type" type="Sprite" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+position = Vector2( 11, -6 )
+texture = ExtResource( 9 )
+
+[node name="reloading_bar" type="ColorRect" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle"]
+margin_left = 31.0
+margin_top = -11.0
+margin_right = 125.0
+color = Color( 0, 0, 0, 0 )
+
+[node name="progress" type="ProgressBar" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle/reloading_bar"]
+margin_top = 5.0
+margin_right = 93.0
+margin_bottom = 9.0
+custom_styles/fg = SubResource( 14 )
+custom_styles/bg = SubResource( 15 )
+percent_visible = false
+
+[node name="text" type="Label" parent="ui/weapon_hud/wpn_gun_hud/ammo_dongle/reloading_bar"]
+margin_top = 12.0
+margin_right = 72.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 13 )
+text = "reloading"
+
+[node name="ammo_bar_bg" type="ColorRect" parent="ui/weapon_hud/wpn_gun_hud"]
+show_behind_parent = true
+margin_left = 24.0
+margin_top = 208.0
+margin_right = 31.0
+margin_bottom = 287.0
+rect_rotation = 180.0
+rect_scale = Vector2( -1, 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="ammo_bar_outline" type="ColorRect" parent="ui/weapon_hud/wpn_gun_hud/ammo_bar_bg"]
+visible = false
+show_behind_parent = true
+margin_left = -1.0
+margin_top = -1.0
+margin_right = 6.0
+margin_bottom = 83.0
+
+[node name="line_pos" type="Position2D" parent="ui/weapon_hud/wpn_gun_hud/ammo_bar_bg"]
+position = Vector2( 1, 2 )
+scale = Vector2( 1, -1 )
+
+[node name="line_pos2" type="Position2D" parent="ui/weapon_hud/wpn_gun_hud/ammo_bar_bg"]
+position = Vector2( 8, 0.565002 )
+scale = Vector2( 1, -1 )
+
+[node name="weapon_name" type="Label" parent="ui/weapon_hud/wpn_gun_hud"]
+margin_left = 18.0
+margin_top = 207.0
+margin_right = 42.0
+margin_bottom = 212.0
+rect_rotation = -89.9999
+custom_fonts/font = SubResource( 16 )
+custom_styles/normal = SubResource( 12 )
+text = "pistol"
+
+[node name="weapon_sprite" type="TextureRect" parent="ui/weapon_hud/wpn_gun_hud"]
+margin_left = 18.0
+margin_top = 209.0
+margin_right = 38.0
+margin_bottom = 223.0
+texture = ExtResource( 11 )
+
+[node name="run_timer" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 15 )
+
+[node name="text" type="Label" parent="ui/run_timer"]
+margin_left = 22.0
+margin_top = 19.0
+margin_right = 79.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 17 )
+custom_styles/normal = SubResource( 18 )
+text = "10 : 10 : 10"
+clip_text = true
+
+[node name="text2" type="Label" parent="ui/run_timer"]
+margin_left = 22.0
+margin_top = 19.0
+margin_right = 25.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 19 )
+text = "H"
+clip_text = true
+
+[node name="text3" type="Label" parent="ui/run_timer"]
+margin_left = 42.0
+margin_top = 19.0
+margin_right = 45.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 19 )
+text = "m"
+clip_text = true
+
+[node name="text4" type="Label" parent="ui/run_timer"]
+margin_left = 62.0
+margin_top = 19.0
+margin_right = 65.0
+margin_bottom = 24.0
+custom_fonts/font = SubResource( 19 )
+text = "s"
+clip_text = true
+
+[node name="gold" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 18 )
+
+[node name="text" type="Label" parent="ui/gold"]
+margin_left = 33.0
+margin_top = 19.0
+margin_right = 73.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 21 )
+text = "155"
+
+[node name="text2" type="Label" parent="ui/gold"]
+margin_left = 33.0
+margin_top = 30.0
+margin_right = 73.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 20 )
+text = "+5"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ui/gold"]
+position = Vector2( 26, 28 )
+frames = SubResource( 32 )
+frame = 1
+speed_scale = 5.0
+playing = true
+
+[node name="trinket" type="Control" parent="ui"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 14 )
+
+[node name="trinket_btn" type="Control" parent="ui/trinket"]
+margin_left = 450.0
+margin_top = 29.0
+margin_right = 475.0
+margin_bottom = 53.0
+
+[node name="icon" type="Sprite" parent="ui/trinket/trinket_btn"]
+texture = ExtResource( 22 )
+
+[node name="rect" type="NinePatchRect" parent="ui/trinket/trinket_btn"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = -11.0
+margin_top = -11.0
+margin_right = 12.0
+margin_bottom = 12.0
+texture = ExtResource( 21 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="ms" parent="ui/trinket/trinket_btn" instance=ExtResource( 23 )]
+margin_left = -8.0
+margin_top = -8.0
+margin_right = -17.0
+margin_bottom = -16.0
+
+[node name="anchor" type="Position2D" parent="ui/trinket"]
+position = Vector2( 450, 29 )
+
+[node name="desc" type="Node2D" parent="ui/trinket"]
+position = Vector2( 450, 29 )
+
+[node name="ColorRect" type="ColorRect" parent="ui/trinket/desc"]
+margin_left = -164.0
+margin_top = -17.0
+margin_right = -28.0
+margin_bottom = 29.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="text" type="Label" parent="ui/trinket/desc/ColorRect"]
+margin_top = -10.0
+margin_right = 26.0
+margin_bottom = 1.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
+text = "test"
+valign = 1
+
+[node name="text2" type="Label" parent="ui/trinket/desc/ColorRect"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 134.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 33 )
+text = "Halves your hp but giving
+you regeneration 
+5s = +1HP"
+autowrap = true
+
+[node name="Line2D" type="Line2D" parent="ui/trinket/desc"]
+points = PoolVector2Array( -13, 2, -28, 6, -28, 30, -164, 30, -164, -16, -28, -16, -28, -2, -13, 1 )
+width = 1.5
+default_color = Color( 1, 1, 1, 1 )
