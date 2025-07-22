@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://systems/persistent/scripts/settings.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+settings = [ [ "Audio" ], [ "Music Volume", 40 ], [ "Audio Volume", 60 ], [ "Graphics" ], [ "Graphics Quality", 0 ], [ "Vsync", false ], [ "Fullscreen", true ], [ "HUD Opacity", 255 ], [ "HUD Padding", 4 ], [ "Crosshair", 0 ], [ "Crosshair Size", 3 ], [ "Crosshair Outline Size", 3 ], [ "Colorblind Mode", false ], [ "Effects" ], [ "Screenshake", false ], [ "Screenshake Amount", 30 ], [ "Particle Amount", 100 ], [ "Bloom Intensity", 50 ], [ "Outline Strength", 80 ], [ "Gameplay" ], [ "Always Reload", false ], [ "Camera Aim", false ], [ "Mouse Sensitivity", 100 ], [ "Invert Y Axis", false ], [ "Show Run Time", false ], [ "Autoaim", false ], [ "Autoaim Strength", 40 ], [ "Dash Sensitivity", 50 ], [ "Input Buffer Time", 15 ], [ "Damage Numbers", false ], [ "Quick Restart Confirmation", true ], [ "Miscellanous" ], [ "Dropdown_test", 2 ], [ "Streamer Mode", false ], [ "Meme Announcer", false ], [ "Chipmunk Voice Filter", false ], [ "Low Health SFX Volume", 100 ], [ "Hitmarker Sound Volume", 100 ], [ "Weapon Bobbing", true ], [ "Weapon Trail Opacity", 100 ], [ "Extra Enemy Gibs", true ], [ "Debug Damage Numbers", false ], [ "Cheat Mode", false ] ]
