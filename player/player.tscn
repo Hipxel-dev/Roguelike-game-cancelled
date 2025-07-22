@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://player/scripts/player.gd" type="Script" id=1]
+[ext_resource path="res://art/player/char.png" type="Texture" id=2]
+[ext_resource path="res://player/weapons/guns/weapon_pistol.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player/scripts/weapon_management.gd" type="Script" id=4]
+[ext_resource path="res://player/weapons/guns/weapon_smg.tscn" type="PackedScene" id=5]
+[ext_resource path="res://player/weapons/guns/weapon_minigun.tscn" type="PackedScene" id=6]
+[ext_resource path="res://systems/reusable/hitbox.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5, 6.5 )
+
+[node name="player" type="KinematicBody2D" groups=["player"]]
+script = ExtResource( 1 )
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="weapons" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="weapon_pistol" parent="weapons" instance=ExtResource( 3 )]
+
+[node name="weapon_smg" parent="weapons" instance=ExtResource( 5 )]
+
+[node name="weapon_minigun" parent="weapons" instance=ExtResource( 6 )]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+
+[node name="hitbox" parent="." groups=["player"] instance=ExtResource( 7 )]
+make_damage_number = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2( 0, 6 )
+shape = SubResource( 2 )
+
+[node name="trinkets" type="Node" parent="."]

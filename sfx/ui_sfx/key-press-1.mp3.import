@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/key-press-1.mp3-04539ef19e16993a4f7c4753bb9fe0bb.mp3str"
+
+[deps]
+
+source_file="res://sfx/ui_sfx/key-press-1.mp3"
+dest_files=[ "res://.import/key-press-1.mp3-04539ef19e16993a4f7c4753bb9fe0bb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

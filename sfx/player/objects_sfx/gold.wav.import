@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gold.wav-a6637ad9863c00e9762d35199869f67e.sample"
+
+[deps]
+
+source_file="res://sfx/player/objects_sfx/gold.wav"
+dest_files=[ "res://.import/gold.wav-a6637ad9863c00e9762d35199869f67e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

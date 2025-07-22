@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pistol_sfx.mp3-33284794b484a5a57f508f68c004c9d3.mp3str"
+
+[deps]
+
+source_file="res://sfx/player/weapons_sfx/guns_sfx/pistol_sfx.mp3"
+dest_files=[ "res://.import/pistol_sfx.mp3-33284794b484a5a57f508f68c004c9d3.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

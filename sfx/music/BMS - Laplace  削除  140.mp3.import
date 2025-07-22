@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BMS - Laplace  削除  140.mp3-247de8f0887e78abf27eb74a240b687e.mp3str"
+
+[deps]
+
+source_file="res://sfx/music/BMS - Laplace  削除  140.mp3"
+dest_files=[ "res://.import/BMS - Laplace  削除  140.mp3-247de8f0887e78abf27eb74a240b687e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

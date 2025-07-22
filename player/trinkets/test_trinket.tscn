@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://player/trinkets/class_trinket.gd" type="Script" id=1]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+trinket_name = "Health Paceur"
+trinket_desc = "Your MAX hp is 50 But you regenerate health!"

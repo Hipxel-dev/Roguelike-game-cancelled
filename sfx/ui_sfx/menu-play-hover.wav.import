@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/menu-play-hover.wav-8ab2a929b431234215d6e1621807a69a.sample"
+
+[deps]
+
+source_file="res://sfx/ui_sfx/menu-play-hover.wav"
+dest_files=[ "res://.import/menu-play-hover.wav-8ab2a929b431234215d6e1621807a69a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

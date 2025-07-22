@@ -1,0 +1,1 @@
+extends weapon_gun_base

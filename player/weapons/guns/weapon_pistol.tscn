@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/player/weapons/guns/pistol.png" type="Texture" id=1]
+[ext_resource path="res://player/weapons/weapon_classes/weapon_gun_base.gd" type="Script" id=2]
+
+[node name="weapon_pistol" type="Node2D"]
+script = ExtResource( 2 )
+weapon_name = "Pistol"
+magazine_size = 8
+magazine_ammo = 8
+reload_time = 0.4
+bullet_speed = 1200
+bullet_spread = 2
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 6, 0 )
+texture = ExtResource( 1 )

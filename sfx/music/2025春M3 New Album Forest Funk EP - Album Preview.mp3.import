@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2025春M3 New Album Forest Funk EP - Album Preview.mp3-b044cd9d9954055671735953cc7db193.mp3str"
+
+[deps]
+
+source_file="res://sfx/music/2025春M3 New Album Forest Funk EP - Album Preview.mp3"
+dest_files=[ "res://.import/2025春M3 New Album Forest Funk EP - Album Preview.mp3-b044cd9d9954055671735953cc7db193.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

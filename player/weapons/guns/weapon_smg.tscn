@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/player/weapons/guns/smg.png" type="Texture" id=1]
+[ext_resource path="res://player/weapons/guns/scripts/weapon_smg.gd" type="Script" id=2]
+
+[node name="weapon_smg" type="Node2D"]
+script = ExtResource( 2 )
+weapon_name = "Smg"
+weapon_description = "Full auto with decent reload time but reduced accuracy."
+ammo = 250
+max_ammo = 250
+magazine_size = 45
+magazine_ammo = 45
+reload_time = 1.0
+fire_rate = 0.07
+shake_amount = 1
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 8, 0 )
+texture = ExtResource( 1 )

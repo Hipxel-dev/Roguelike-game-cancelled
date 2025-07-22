@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/select-expand.mp3-63be4525349f7505c131a29f8d7eb862.mp3str"
+
+[deps]
+
+source_file="res://sfx/ui_sfx/select-expand.mp3"
+dest_files=[ "res://.import/select-expand.mp3-63be4525349f7505c131a29f8d7eb862.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

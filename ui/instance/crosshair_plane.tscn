@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/instance/script/crosshair.gd" type="Script" id=1]
+[ext_resource path="res://art/Shaders/outline.tres" type="Shader" id=2]
+[ext_resource path="res://art/ui_art/cursors/crosshair2.png" type="Texture" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/color = Color( 0, 0, 0, 1 )
+shader_param/width = 1.0
+shader_param/pattern = 1
+shader_param/inside = false
+shader_param/add_margins = true
+shader_param/number_of_images = Vector2( 1, 1 )
+
+[node name="crosshair_plane" type="CanvasLayer"]
+layer = 3
+
+[node name="crosshair" type="Sprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 3 )
+script = ExtResource( 1 )

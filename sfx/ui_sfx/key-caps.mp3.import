@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/key-caps.mp3-4516db1edf01a3cbebc891434b244279.mp3str"
+
+[deps]
+
+source_file="res://sfx/ui_sfx/key-caps.mp3"
+dest_files=[ "res://.import/key-caps.mp3-4516db1edf01a3cbebc891434b244279.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
